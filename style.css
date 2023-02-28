@@ -1,0 +1,34 @@
+@font-face {
+  src: url(/fonts/Golos-Text_Regular.ttf);
+  font-family: 'Golos Regular';
+}
+@font-face {
+  src: url(/fonts/Golos-Text_Bold.ttf);
+  font-family: 'Golos Bold';
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Golos Regular';
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+input[type='radio'] {
+  width: 16px;
+  height: 16px;
+}
+
+.container {
+
+}
+
+
+
