@@ -19,15 +19,15 @@ class Quiz {
 
 // потом найти наибольшее значение points в Facult с помощью .map
 
-// Пулы вопросов
-
+// Направления
 const facults = [
     new Facult("IFST", "Крутое направление!"),
-    new Facult("PINF", "Ну так чутб пососнее..."),
+    new Facult("PINF", "Ну так чутб хуже..."),
     new Facult("DIZN", "Дизайнеры ежжи"),
     new Facult("TLVD", "Телевизионщики")
 ]
 
+// Пулы вопросов
 const quizMainPull = [
     new Quiz("Нравиться ли вам программировать?", "Да", "Нет", "Не знаю", (answer) => {
         if (answer === "a") progPoints++;
@@ -43,7 +43,7 @@ const quizProgPull = [
         if (answer === "a") facults.find(x => x.title === "IFST").points++;
         if (answer === "b") facults.find(x => x.title === "PINF").points++;
     }),
-    new Quiz("вы посос?", "Да", "Нет", "Не знаю", (answer) => {
+    new Quiz("вы пинф?", "Да", "Нет", "Не знаю", (answer) => {
         if (answer === "a") facults.find(x => x.title === "PINF").points++;
         if (answer === "b") facults.find(x => x.title === "IFST").points++;
     })
