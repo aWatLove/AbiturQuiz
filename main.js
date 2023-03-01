@@ -17,8 +17,6 @@ class Quiz {
     }
 }
 
-// потом найти наибольшее значение points в Facult с помощью .map
-
 // Направления
 const facults = [
     new Facult("IFST", "Крутое направление!"),
@@ -64,7 +62,6 @@ let gumPoints = 0;
 let currentPull = quizMainPull
 let questCount = 0;
 
-
 const quest_text = document.getElementById("question-text");
 const a_text = document.getElementById("a");
 const b_text = document.getElementById("b");
@@ -101,24 +98,31 @@ function getSelect() {
 }
 
 function loadResult() {
-
+    console.log(facults)
+    let maxIndex = facults.reduce((acc, curr, i) => facults[acc].points > curr.points ? acc : i, 0);
+    console.log(facults[maxIndex])
 }
 
 submit.addEventListener('click', () => {
     const answer = getSelect();
 
     if (answer) {
-        quizMainPull[questCount].callback(answer);
+        currentPull[questCount].callback(answer); //
 
         questCount++;
         if (questCount < quizMainPull.length) {
             loadQuiz();
         } else if (currentPull === quizMainPull) {
-            if (progPoints > gumPoints) currentPull = quizProgPull;
-            else currentPull = quizOtherPull;
+            if (progPoints > gumPoints) {
+                currentPull = quizProgPull;
+            }
+            else {
+                currentPull = quizOtherPull;
+            }
             questCount = 0;
             loadQuiz();
         } else {
+            loadResult();
 
         }
     }
