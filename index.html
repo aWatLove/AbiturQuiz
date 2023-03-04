@@ -8,31 +8,48 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-  <div class="container">
-    <div class="quiz-box" id="quiz">
-      <div class="question-text">
-        <p id="question-text">Вопрос</p>
-      </div>
-      <div class="questions">
-        <div class="questions__item">
-          <input type="radio" name="answer" class="answer" id="a">
-          <label for="a" id="a_text">Да</label>
+  <div class="bg">
+    <div class="container" id="container">
+      <!-- Тело опросника -->
+      <div class="quiz-box" id="quiz">
+        <div class="question-text">
+          <p id="question-text">Вопрос</p>
         </div>
-        <div class="questions__item">
-          <input type="radio" name="answer" class="answer" id="b">
-          <label for="b" id="b_text">Нет</label>
+        <div class="questions">
+          <div class="questions__item">
+            <input type="radio" name="answer" class="answer" id="a">
+            <label for="a" id="a_text"></label>
+          </div>
+          <div class="questions__item">
+            <input type="radio" name="answer" class="answer" id="b">
+            <label for="b" id="b_text">Н</label>
+          </div>
+          <div class="questions__item">
+            <input type="radio" name="answer" class="answer" id="c">
+            <label for="c" id="c_text">В</label>
+          </div>
         </div>
-        <div class="questions__item">
-          <input type="radio" name="answer" class="answer" id="c">
-          <label for="c" id="c_text">Не знаю</label>
-        </div>
+
+        <button id="submit">Далее</button>
       </div>
 
-      <button id="submit">Далее</button>
+      <!-- Кнопка начать тест -->
+      <div class="start" id="start">
+        опросник
+        <button id="quizLoad">Начать</button>
+      </div>
+
+
+      <!-- Результат -->
+      <div class = "result-box" id="result-box">
+        <div class="result-content" id="result-content"></div>
+        <button id="retry">Пройти тест заново</button>
+      </div>
+
     </div>
+
   </div>
 
-
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="/scripts/main.js"></script>
   </body>
 </html>
