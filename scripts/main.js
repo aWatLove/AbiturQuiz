@@ -106,31 +106,98 @@ const quizMainPull = [
         if (answer === "a" || answer === "c") progPoints+=2;
         if (answer === "b") gumPoints++;
     }),
-    new Quiz("Нравится ли вам заниматься творчеством?", "Да", "Нет", "Возможно", (answer) => {
-        if (answer === "a") gumPoints++;
-        if (answer === "b") progPoints++;
+    new Quiz("Решать интересные задачи или творчество?", "Задачи", "Творчество", "Оба варианта", (answer) => {
+        if (answer === "a") progPoints+=2;
+        if (answer === "b") gumPoints+=2;
+        if (answer === "c") progPoints++;
+    }),
+    new Quiz("Какие экзамены вы сдали/планируете сдавать?", "Математика,Русский язык,Физика/Информатика", "Обществознание,Русский язык,История/Информатика", "Литература,Русский язык,История/Обществознание", (answer) => {
+        if (answer === "a") progPoints+=2;
+        if (answer === "b") gumPoints++;
+        if (answer === "c") gumPoints++;
     })
-
 ];
 const quizProgPull = [
-    new Quiz("Хотели ли вы делать игры??", "Да", "Нет", "Возможно", (answer) => {
-        if (answer === "a") facults.find(x => x.name === "ИФСТ").points++;
-        if (answer === "b") facults.find(x => x.name === "ПИНФ").points++;
+    new Quiz("Хотите ли вы заниматься тестированием програмного обеспечения?", "Да", "Нет", "Не знаю", (answer) => {
+        if (answer === "a") {
+            facults.find(x => x.name === "ПИНФ").points++;
+            facults.find(x => x.name === "ПИНЖ").points++;
+        }
+        if (answer === "b") {
+            facults.find(x => x.name === "ИФСТ").points++;
+            facults.find(x => x.name === "ИВЧТ").points++;
+        }
+        if (answer === "с") facults.find(x => x.name === "ИФСТ").points++;
     }),
-    new Quiz("вы пинф?", "Да", "Нет", "Не знаю", (answer) => {
-        if (answer === "a") facults.find(x => x.name === "ПИНФ").points++;
-        if (answer === "b") facults.find(x => x.name === "ИФСТ").points++;
+    new Quiz("Хотите ли вы обучаться программированию, разработку компьютерных игр и мобильных приложений?", "Да", "Нет", "Не знаю", (answer) => {
+        if (answer === "a") facults.find(x => x.name === "ИФСТ").points++;
+        if (answer === "b" || answer === "c") {
+            facults.find(x => x.name === "ИВЧТ").points++;
+            facults.find(x => x.name === "ПИНФ").points++;
+            facults.find(x => x.name === "ПИНЖ").points++;
+        }
+    }),
+    new Quiz("Хотите ли вы управлять IT проектами?", "Да", "Нет", "Не знаю", (answer) => {
+        if (answer === "a")  facults.find(x => x.name === "ПИНЖ").points++;
+        if (answer === "b" || answer === "c") {
+            facults.find(x => x.name === "ИФСТ").points++;
+            facults.find(x => x.name === "ИВЧТ").points++;
+            facults.find(x => x.name === "ПИНФ").points++;
+        }
+    }),
+    new Quiz("Хотите ли вы изучать облачные технологии?", "Да", "Нет", "Не знаю", (answer) => {
+        if (answer === "a")  facults.find(x => x.name === "ИВЧТ").points++;
+        if (answer === "b" || answer === "c") {
+            facults.find(x => x.name === "ИФСТ").points++;
+            facults.find(x => x.name === "ПИНФ").points++;
+            facults.find(x => x.name === "ПИНЖ").points++;
+        }
+    }),
+    new Quiz("Хотите ли вы изучать виртуальную и дополненую реальность?", "Да", "Нет", "Не знаю", (answer) => {
+        if (answer === "a")  facults.find(x => x.name === "ИФСТ").points++;
+        if (answer === "b" || answer === "c") {
+            facults.find(x => x.name === "ПИНФ").points++;
+            facults.find(x => x.name === "ИВЧТ").points++;
+            facults.find(x => x.name === "ПИНЖ").points++;
+        }
     })
 ];
 const quizOtherPull = [
-    new Quiz("Нравится ли вам работать с людьми?", "Да", "Нет", "Возможно", (answer) => {
-        if (answer === "a") facults.find(x => x.name === "ТЛВД").points++;
-        if (answer === "b") facults.find(x => x.name === "ДИЗН").points++;
+    new Quiz("Хотите ли вы учиться создавать цифровые рекламные медийные продукты(графика,трехмерная визуализация)?", "Да", "Нет", "Возможно", (answer) => {
+        if (answer === "a") facults.find(x => x.name === "РКЛМ").points++;
+        if (answer === "b" || answer === "c") {
+            facults.find(x => x.name === "ДИЗН").points++;
+            facults.find(x => x.name === "ТЛВД").points++;
+        }
     }),
-    new Quiz("Вы креативны??", "Да", "Нет", "Не знаю", (answer) => {
+    new Quiz("Хотите ли вы изучать сферу видеоиндустрии?", "Да", "Нет", "Не знаю", (answer) => {
         if (answer === "a") facults.find(x => x.name === "ТЛВД").points++;
-        facults.find(x => x.name === "ДИЗН").points++;
-    })
+        if (answer === "b" || answer === "c") {
+            facults.find(x => x.name === "ДИЗН").points++;
+            facults.find(x => x.name === "РКЛМ").points++;
+        }
+    }),
+    new Quiz("Хотите ли вы разрабатывать рекламные макеты для веб-пронстранства и полиграфии)?", "Да", "Нет", "Не знаю", (answer) => {
+        if (answer === "a") facults.find(x => x.name === "ДИЗН").points++;
+        if (answer === "b" || answer === "c") {
+            facults.find(x => x.name === "ТЛВД").points++;
+            facults.find(x => x.name === "РКЛМ").points++;
+        }
+    }),
+    new Quiz("Хотели вы бы разрабатывать дизайн бытовой и промышленной техники, гаджетов, транспорта, мебели?", "Да", "Нет", "Не знаю", (answer) => {
+        if (answer === "a") facults.find(x => x.name === "ДИЗН").points++;
+        if (answer === "b" || answer === "c") {
+            facults.find(x => x.name === "ТЛВД").points++;
+            facults.find(x => x.name === "РКЛМ").points++;
+        }
+    }),
+    new Quiz("Хотите ли вы изучать исскуство, технологии видеомонтажа, тележурналистику?", "Да", "Нет", "Не знаю", (answer) => {
+        if (answer === "a") facults.find(x => x.name === "ТЛВД").points++;
+        if (answer === "b" || answer === "c") {
+            facults.find(x => x.name === "ДИЗН").points++;
+            facults.find(x => x.name === "РКЛМ").points++;
+        }
+    }),
 ];
 
 let currentPull = quizMainPull // Текущий пулл
@@ -224,7 +291,7 @@ submit.addEventListener('click', () => {
         currentPull[questCount].callback(answer);
 
         questCount++;
-        if (questCount < quizMainPull.length) {
+        if (questCount < currentPull.length) {
             loadQuiz();
         } else if (currentPull === quizMainPull) {
             if (progPoints > gumPoints) {
