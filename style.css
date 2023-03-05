@@ -21,6 +21,14 @@ body {
   height: 100vh;
 }
 
+.logo {
+  width: 150px;
+
+}
+.logo img {
+  width: 150px;
+}
+
 input[type='radio'] {
   width: 16px;
   height: 16px;
@@ -30,10 +38,10 @@ input[type='radio'] {
   display: block;
   border-radius: 10px;
   background-color: whitesmoke;
-  width: auto;
+  width: 550px;
   /*height: 200px;*/
   padding: 25px 40px;
-
+  margin-bottom: 10vh;
 }
 
 /* quiz box */
@@ -52,6 +60,30 @@ input[type='radio'] {
 .facult-subtitle {
   font-size: 16px;
 }
+
+.profiles {
+  font-size: 16px;
+}
+.profiles span {
+  font-weight: bold;
+}
+
+.formStudy {
+  font-size: 14px;
+}
+
+.formStudy span {
+  font-weight: bold;
+}
+
+.exams {
+  font-size: 14px;
+}
+
+.exams span {
+  font-weight: bold;
+}
+
 
 /* Градиент на задний фон */
 body {
