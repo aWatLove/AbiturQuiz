@@ -9,6 +9,7 @@
   </head>
   <body>
   <div class="bg">
+  <div class="content">
     <div class="logo"><img src="images/logo_inpit_w.png" alt="" srcset=""></div>
 
     <div class="container" id="container">
@@ -32,27 +33,37 @@
           </div>
         </div>
 
-        <button id="submit">Далее</button>
+
       </div>
 
       <!-- Кнопка начать тест -->
       <div class="start" id="start">
-        опросник
-        <button id="quizLoad">Начать</button>
+        <p class="head_text">Привет, <span>Абитуриент</span>!</p>
+        <p class="subtext">Не знаешь какое направление выбрать?</p>
+        <p class="subtext">Пройди небольшой тест, а мы подскажем!</p>
+
       </div>
 
 
       <!-- Результат -->
       <div class = "result-box" id="result-box">
         <div class="result-content" id="result-content"></div>
-        <button id="retry">Пройти тест заново</button>
+
       </div>
 
     </div>
 
+    <!--  Кнопки  -->
+    <div id="buttonOut">
+      <button id="quizLoad">Начать</button>
+      <button id="submit">Далее</button>
+      <button id="retry">Пройти тест заново</button>
+    </div>
+
+
+    </div>
   </div>
 
-
-    <script type="module" src="/scripts/main.js"></script>
+  <script type="module" src="/scripts/main.js"></script>
   </body>
 </html>

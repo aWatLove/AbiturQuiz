@@ -102,7 +102,7 @@ const facults = [
 
 // Пулы вопросов
 const quizMainPull = [
-    new Quiz("Хотели бы научиться программировать?", "Да", "Нет", "Возможно", (answer) => {
+    new Quiz("Хотите ли вы наличие творчества и программирования в специальностях?", "Да", "Нет", "Возможно", (answer) => {
         if (answer === "a" || answer === "c") progPoints+=2;
         if (answer === "b") gumPoints++;
     }),
@@ -204,8 +204,9 @@ function getSelect() {
 
 function loadResult() {
     quiz_box.style.display = "none";
+    submit.style.display = 'none'
     resultBox.style.display = 'block';
-    // container.style.width = '500px';
+    retryButton.style.display = 'block';
     let maxPointIndex = facults.reduce((acc, curr, i) => facults[acc].points > curr.points ? acc : i, 0);
     let res = facults[maxPointIndex];
     resultContent.innerHTML = `<p class="result-text">Вам подходит</p>
@@ -242,13 +243,16 @@ submit.addEventListener('click', () => {
 
 loadButton.addEventListener('click', ()=>{
     startDisplay.style.display = 'none';
+    loadButton.style.display = 'none';
+    submit.style.display = 'block';
     document.getElementById("quiz").style.display = 'block';
 });
 
 retryButton.addEventListener('click', () => {
     resultBox.style.display = 'none';
+    retryButton.style.display = 'none';
     cleanQuiz();
-    // container.style.width = 'auto';
     quiz_box.style.display = 'block';
+    submit.style.display = 'block';
     loadQuiz();
 });
